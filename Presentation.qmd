@@ -292,4 +292,6 @@ Les Anthologies précédentes (perdues) :
 ### 2. ekdosis : *Dummy edition* 
 ### 3. ekdosis : travaux pratique 
 
-[Téléchargez le tuto ici](static/Tuto.pdf)
+[Téléchargez le tuto ici](tuto/Tuto.pdf)^[<https://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/static/Tuto.pdf>] 
+
+[Téléchargez les 3 documents à cette adresses et chargez-les dans un *blank projet* Overleaf](to_overleaf)^[<https://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/to_overleaf/>] 
