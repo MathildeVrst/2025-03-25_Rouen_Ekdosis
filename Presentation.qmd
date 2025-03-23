@@ -291,3 +291,5 @@ Les Anthologies précédentes (perdues) :
 ### 1. LaTeX : Quelques rappels 
 ### 2. ekdosis : *Dummy edition* 
 ### 3. ekdosis : travaux pratique 
+
+[Téléchargez le tuto ici](static/Tuto.pdf)
