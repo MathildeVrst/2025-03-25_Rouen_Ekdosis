@@ -1,0 +1,4 @@
+project:
+  title: LaTeX et ekdosis pour l'édition critique de textes classiques
+  type: website
+  output-dir: docs

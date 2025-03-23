@@ -1,0 +1,293 @@
+---
+title: LaTeX et `ekdosis` pour l'édition critique de textes classiques
+subtitle: Journée de travail sur les modélisations textuelles
+author:
+  - name: Mathilde Verstraete
+    email: mathilde.verstraete@umontreal.ca
+    affiliations: Université de Montréal -- CRC sur les Écritures numériques
+lang: fr
+date: 2025-03-25 
+date-format: long
+format: 
+  revealjs:
+    slide-number: true
+    preview-links: auto
+    footer: "Rouen -- 25 mars 2025"
+    theme: [scss/clean.scss, scss/caption.scss]
+---
+
+## Sommaire de l'atelier 
+
+1. C'est quoi une édition critique ? Quelques mots sur l'ecdotique et la critique textuelle ; 
+2. Illustration : l'édition critique numérique de la *Sylloge Parisina* ;
+3. LaTeX et ekdosis : introduction théorique ; 
+4. Place à la pratique ([utilisation d'OverLeaf]{.alert}) : 
+   1. LaTeX : Quelques rappels ; 
+   2. ekdosis : *Dummy edition* ; 
+   3. ekdosis : travaux pratique 
+   
+## 1. Quelques mots sur l'ecdotique et la critique textuelle 
+
+### Ecdotique < `ekdosis`
+
+- Ecdotique : L’art d’éditer les textes d’après une méthode critique
+- *ἔκδοσις* < *ἐκδίδωμι* : *produire au dehors, faire passer en d’autres mains, confier ; **publier***
+- L'édition critique a un Rôle de médiation et de restitution de l’univers de création du texte source^[Casenave, *L'édition critique numérique*, Paris 2023, p. 10.] 
+- Disposition (*layout*) particulière et reconnaissable. 
+
+---
+
+### Les étapes de l’édition critique d'un texte classique  
+
+:::: {layout="[ 30, 30, 30 ]"}
+
+::: {#first-column}
+1. Recensio (< *recensere*) ; 
+2. Collatio (< *conferre*) ; 
+3. Emendatio (< *emendare*) ; 
+4. Dispositio (< *disponere*)
+:::
+
+::: {#second-column}
+
+![Extrait de **collation** -- document de travail avec un ms. principal (thèse de doctorat d'E. Beaujard)](img/Coll_Beaujard.png){width=250 .lightbox} 
+
+:::
+
+::: {#third-column}
+
+![Extrait de **collation** -- document de travail avec plusieurs mss. (notes d'E. Beaujard)](img/Coll_Beaujard-Alfidius.png){width=250 .lightbox} 
+
+:::
+
+::::
+
+---
+
+### L’importance de l’apparat critique
+
+> I had by then read the greater part of Aristophanes, and I began to rave about it to Leo, and to wax eloquent on the magic of this poetry, the beauty of the choral odes, and so on and so forth. Leo let me have my say, perhaps ten minutes in all, without showing any sign of disapproval or impatience. When I was finished, he asked: "In which edition do you read Aristophanes?" I thought: has he not been listening? What has his question got to do with what I have been telling him? After a moment's ruffled hesitation I answered: "The Teubner". Leo: "Oh, you read Aristophanes without a critical apparatus." He said it quite calmly, without any sharpness, without a whiff of sarcasm, just sincerely taken aback that it was possible for a tolerably intelligent young man to do such a thing. I looked at the lawn nearby and had a single, overwhelming sensation: νῦν μοι χάνοι εὐρεῖα χθών. Later it seemed to me that in that moment I had understood the meaning of real scholarship. (West, *Textual Criticism and Editorial Technique*, 1973, p. 7). 
+
+---
+
+![Aristophanis *Acharnenses*, ed. Th. Bergk, Lipsiae 1865 (Teubner)](img/Teubner.png)
+
+---
+
+![Aristophanis *Acharnenses*, edd. F. W. Hall et W. M. Geldart, Oxonii 1906 (Scriptorum Classicorum Bibliotheca Oxoniensis)](img/OCT.png)
+
+--- 
+
+![*Aristophane. Les Acharniens*, ed. V. Coulon, trad. H. Van Daele, Paris 1948 (Les Belles Lettres)](img/Bude.png)
+
+--- 
+
+![*Aristophanes. Acharnians*, ed. J. Henderson, Harvard 1998 (The Loeb Classical Library)](img/Loeb.png)
+
+<!--
+![*Aristófanes. Los Acarnienses*, ed. Es. R. Monescillo, Madrid 1985 (Colleción Hispanica de Autores Griegos y Latinos)](img/Hispanica.png)
+-->
+
+---
+
+## Quelques références sur l'édition critique {.smaller}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Bibliographie</title>
+</head>
+<body>
+<div class="csl-bib-body" style="line-height: 2; margin-left: 2em; text-indent:-2em;">
+  <div class="csl-entry">Braccini, T. (2017). <i>La scienza dei testi antichi. Introduzione alla filologia classica</i>. Mondadori Education.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-88-00-74654-0&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=La%20scienza%20dei%20testi%20antichi.%20Introduzione%20alla%20filologia%20classica&amp;rft.place=Firenze&amp;rft.publisher=Mondadori%20Education&amp;rft.aufirst=Tommaso&amp;rft.aulast=Braccini&amp;rft.au=Tommaso%20Braccini&amp;rft.date=2017&amp;rft.tpages=192&amp;rft.isbn=978-88-00-74654-0&amp;rft.language=Italiano"></span>
+  <div class="csl-entry">Dorandi, T. (2016). <i>Nell’officina dei classici. Come lavoravano gli autori antichi</i>. Carocci.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-88-430-8312-1&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Nell'officina%20dei%20classici.%20Come%20lavoravano%20gli%20autori%20antichi&amp;rft.place=Roma&amp;rft.publisher=Carocci&amp;rft.series=Aulamagna&amp;rft.aufirst=Tiziano&amp;rft.aulast=Dorandi&amp;rft.au=Tiziano%20Dorandi&amp;rft.date=2016&amp;rft.isbn=978-88-430-8312-1&amp;rft.language=ita"></span>
+  <div class="csl-entry">Maas, P. (1950). <i>Textkritik</i>. B.G. Teubner.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Textkritik&amp;rft.place=Leipzig&amp;rft.publisher=B.G.%20Teubner&amp;rft.aufirst=Paul&amp;rft.aulast=Maas&amp;rft.au=Paul%20Maas&amp;rft.date=1950&amp;rft.tpages=31&amp;rft.language=ger"></span>
+  <div class="csl-entry">Pasquali, G. (1988). <i>Storia della tradizione e critica del testo</i> (2da éd.). F. Le Monnier.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-88-7166-724-9&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Storia%20della%20tradizione%20e%20critica%20del%20testo&amp;rft.place=Firenze&amp;rft.publisher=F.%20Le%20Monnier&amp;rft.edition=2da&amp;rft.aufirst=Giorgio&amp;rft.aulast=Pasquali&amp;rft.au=Giorgio%20Pasquali&amp;rft.date=1988&amp;rft.tpages=594&amp;rft.isbn=978-88-7166-724-9&amp;rft.language=Italiano"></span>
+  <div class="csl-entry">Reynolds, L. D., &amp; Wilson, N. G. (1991). <i>Scribes and scholars. A Guide to the Transmission of Greek and Latin Literature</i> (3rd éd.). Clarendon Press. </div>
+  <div class="csl-entry">Timpanaro, S. (2004). <i>La genesi del metodo del Lachmann</i>. Liviana Editrice.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-88-6008-316-6&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=La%20genesi%20del%20metodo%20del%20Lachmann&amp;rft.place=Novara&amp;rft.publisher=Liviana%20Editrice&amp;rft.aufirst=Sebastiano&amp;rft.aulast=Timpanaro&amp;rft.au=Sebastiano%20Timpanaro&amp;rft.date=2004&amp;rft.isbn=978-88-6008-316-6&amp;rft.language=Italiano"></span>
+  <div class="csl-entry">West, M. L. (1973). <i>Textual Criticism and Editorial Technique Applicable to Greek and Latin Texts</i>. B. G. Teubner.</div>
+</div></body>
+</html>
+
+> But textual criticism is not something to be learned by reading as much as possible about it. Once the basic principles have been apprehended, what is needed is observation and practice, not research into the further ramifications of theory. 
+>
+> West, *Textual Criticism and Editorial Technique*, 1973, p. 5. 
+
+## Parcours {visibility="hidden"}
+
+::: {.incremental}
+- Un peu de lettres classiques + un peu de bidouillages techniques (doctorat littérature, option humanités numériques)
+- CRC sur les Écritures numériques 
+- Coordination du projet d'édition numérique collaborative de l'*Anthologie grecque* : [https://anthologiagraeca.org/](https://anthologiagraeca.org/) 
+- Recherche doctorale : les éditions critiques numériques de textes classiques 
+- Direction : M. Vitali-Rosati & E. Bouchard 
+:::
+
+## 2. Le projet d'édition critique de la *Sylloge Parisina* 
+
+- Éditer une édition 
+- Édition critique réalisée par Lucia Floridi (Alma Mater Studiorum, Università di Bologna)
+- (Premier) projet en cours 
+- Collection ARION (PURH)
+
+---
+
+### Anthologies d'anthologies {.smaller}
+
+:::: {layout="[ 45, 45 ]"}
+
+::: {#first-column}
+
+L'*Anthologie palatine* : 
+
+- *Codex palatinus gr.* 23 (940, retrouvé au XVI^e^ siècle) 
+    - séparé en deux (+ *Parisinus suppl. gr.* 384)
+- *Venetus Marcianus gr.* 481 (1299 ou 1301) : moins complet 
+
+:::
+::: {#second-column}
+
+Les Anthologies précédentes (perdues) : 
+
+- *c.* IX^e^ s. : Constantin de Céphalas 
+- *c.* VI^e^ s. : Agathias 
+- *c.* I^er^ apr. : Philippe de Thessalonique 
+- *c.* II^e^-I^er^ av. : Méléagre 
+
+:::
+
+::::
+
+[Plusieurs Sylloges mineures, dont la *Parisina*]{.alert} : 
+
+- *Par. suppl. gr.* 352 (XII ou XIII^e^) : tradition originale 
+
+---
+
+### Édition critique de L. Floridi 
+
+:::: {layout="[ 30, 70 ]"}
+
+::: {#first-column}
+
+- ```.docx``` (< Word)
+- introduction critique, 
+- [*conspectus siglorum*]{.underline}, 
+- [édition critique et traduction]{.underline}, 
+    - [plusieurs niveaux d'apparats]{.fg style="--col: #9a79a9"}
+- appendix diverses 
+
+:::
+
+::: {#second-column}
+
+::: {.fragment}
+![Édition et traduction de la première épigramme (L. Floridi)](img/Parisina_S1Balise.png){height=550}
+:::
+
+:::
+
+::::
+
+
+## 3. LaTeX et ekdosis : théorie
+
+###  TeX, LaTeX 
+
+- [TeX]{.alert} : 
+  - D. Knuth, *c.* 1977 
+  - système de mise en page (*typesetting*) ou de préparation de documents
+- [LaTeX]{.alert} : 
+  - L. Lamport, *c.* 1977 
+  - ensemble de macro-commandes pour faciliter l’utilisation de TeX
+
+→ Production de documents d'une grande qualité typographique 
+
+
+---
+
+### LaTeX : les rouages techniques
+
+:::: {layout="[ 50, 50 ]"}
+
+::: {#first-column}
+
+- Structure des fichiers LaTeX : 
+    - [Preambule]{.alert} : configuration du document (classe, packages, commandes) ; 
+    - [Corps du texte]{.alert} : contenu principal organisé en sections et environnements ; 
+      - Environnement : `\begin{document}` \<votre texte ici\> `\end{document}`
+
+:::
+
+::: {#second-column}
+
+- Processus de compilation : 
+    - Lecture et interprétation du fichier .tex ; 
+    - Calculs précis pour : 
+        - Paragraphes et césures 
+        - Espacement entre mots et lignes 
+    - Plusieurs compilations nécessaires 
+
+:::
+::::
+
+
+---
+
+### LaTeX : retenir ce qu'il n'est pas^[*Cf.* V. Goulet, Rédaction avec `\title{LATEX}`.]
+
+- Un traitement de texte → qualité de la mise en page ;
+- WYSIWYG → plutôt What You See Is What You Mean
+- Incompatible → format identique sur tous les systèmes d’exploitation
+- Instable → noyau arrivé à maturité
+- Imprévisible → LATEX fait ce qu’on lui demande, ni plus, ni moins
+
+[Le contenu et la structure priment sur la sémantique et l'apparence]{.alert} ! Que privilégier ? 
+
+- `\textbf{\large Mon-Titre}`, ou 
+- `\section{Mon-Titre}` ? 
+
+--- 
+
+### ekdosis {.smaller}
+
+:::: {layout="[ 50, 50 ]"}
+
+::: {#first-column}
+
+
+- Packet LaTeX pour l'édition critique de textes classiques 
+- Développé depuis 2020 par R. Alessi 
+- Gestion des apparats critiques 
+- Sorties PDF & TEI XML 
+
+:::
+
+::: {#second-column}
+
+![](img/ekdosis.png){.lightbox height="350"}
+
+:::
+
+::::
+
+--- 
+
+### LaTeX, ekdosis et la tradition imprimée
+
+> « TeX permet d’obtenir instantanément des documents, articles ou livres, d’une qualité typographique immédiatement comparable à des ouvrages tels que ceux que la grande tradition de l’imprimerie a su produire au XIX^e^ siècle et encore dans une grande partie du XX^e^ siècle. (...) Il permet de renouer avec une tradition, aujourd’hui presque oubliée, dans laquelle l’éclat de la présentation n’était pas dissocié de la science et de la qualité des travaux universitaires. » (Alessi, Lyon 2023)
+
+
+
+## Questions avant la partie pratique ? 
+
+## 4. Partie pratique 
+
+### 1. LaTeX : Quelques rappels 
+### 2. ekdosis : *Dummy edition* 
+### 3. ekdosis : travaux pratique 
