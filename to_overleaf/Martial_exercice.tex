@@ -1,50 +1,51 @@
-\documentclass[12pt]{book}
-\usepackage{fontspec}
-\usepackage{geometry} 
-\usepackage[classiclatin,french]{babel}
-\babelfont{rm}{Old Standard}
+%%%%%Préambule%%%%%
+
+\documentclass[12pt]{book} %Classe et taille de police 
+\usepackage{fontspec} %Utile pour la gestion des polices
+\usepackage[a4paper]{geometry} %taille de la page + marges (non configurées ici)
+\usepackage[classiclatin,french]{babel} %gestion des langues (la dernière prime)
+\babelfont{rm}{Old Standard} %Police OldStandard (cfr. https://ctan.org/pkg/oldstandard)
 \babelfont{sf}{NewComputerModernSans10}
 \babelfont{tt}{NewComputerModernMono10}
 
-\usepackage{nextpage}
-\usepackage{xltabular}
-\usepackage{titlesec}
-\titleformat{\section}{\center\Large\bfseries}{}{1em}{}
-\titlespacing\section{0pt}{12pt}{0pt} %\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+\usepackage{nextpage} %gestion des sauts de page (cfr. infra : \cleartoevenpage)
+\usepackage{xltabular} %tableaux sur plusieurs pages 
+\usepackage{titlesec} %personnalisation mise en forme des sections 
+\titleformat{\section}{\center\Large\bfseries}{}{1em}{} %\titleformat{<niveau de titre>}{<style du titre>}{<préfixe>}{<espacement>}{<suffixe>}
+\titlespacing\section{0pt}{12pt}{0pt} %\titlespacing{<niveau de titre>}{<espace avant>}{<espace vertical>}{<espace après>}
 
 \title{Martial. \textit{Épigrammes choisies (Livres I-II)}\footnote{Les textes et traductions ci-dessous sont issues de \textsc{Izaac} H.-J. et \textsc{Malick-Prunier} S., \emph{Martial. Épigrammes} (t. I), Paris, Les Belles Lettres, 2021. Le présent document est un exercice {\eKd} donné dans le cadre de l'atelier \emph{Éditer avec Ekdosis} (Rouen, le 25 mars 2025) assuré par Mathilde Verstraete (qui ne garantit l'élégance du code utilisé).}}
 \author{Édité par ...}
 \date{}
 
-\usepackage[poetry=verse]{ekdosis}
+\usepackage[poetry=verse]{ekdosis} %chargement d'ekdosis avec l'option verse (pour la poésie)
 
-\FormatDiv{1}{\begin{center}\vspace*{2em}\large\bfseries}{\end{center}}
+\FormatDiv{1}{\begin{center}\vspace*{2em}\large\bfseries}{\end{center}} %Mise en forme des divisions ekdosis 
 \FormatDiv{2}{\begin{center}\bfseries}{\end{center}}
 
-\SetAlignment{
+\SetAlignment{ %Mise en page générale (édition + traduction sur des pages en vis-à-vis)
   texts=edition[xml:lang="la"];translation[xml:lang="fr"],
-  apparatus=edition;translation,
-  lineation=page,
-  flush=true
+  apparatus=edition;translation, %un apparat pour l'édition, un pour la traduction (pour une meilleure gestion des commentaires/notes de bas de page)
+  lineation=page, %numérotation recommence à 0 à chaque page (nous la désactiverons plus loin)
+  flush=true %Chaque environnement "alignement" a son propre apparat critique 
 }
 
 \AtBeginEnvironment{edition}{\selectlanguage{latin}}
 \AtBeginEnvironment{translation}{\selectlanguage{french}\SetLineation{lineation=none}}
 
+%déclaration des différents apparats critiques (ici, default = criticus + métrique + notes = footnotes)
 \DeclareApparatus{default}[
-sep={ : },
-subsep={ : }
+  sep={ : }, %symbole séparant les "lem" des "rdg" 
+  subsep={ : }, %symbole (sous-)séprant les "rdg" successives 
 ]
 
 \DeclareApparatus{metrica}[
-  sep={\unskip; },
-  subsep={\unskip; },
-  bhook={\it (\unskip},
-  ehook={)},
-  rule=\relax
+  bhook={\it (\unskip}, %commande(s) et caractère(s) à ajouter au début du bloc apparat (ici, italique + une parenthèse ouverte)
+  ehook={)}, %commande(s) et caractère(s) à ajouter à la fin du bloc apparat
+  rule=\relax %"rule=\relax is not strictly equivalent to norule: with the former, \relax removes the rule but leaves untouched the subsequent carriage return: as a result, the layers are visually separated from one another by a  blank line. With the latter everything is removed, carriage return included."
 ]
 
-\DeclareApparatus{notes}
+\DeclareApparatus{notes} %cfr. documentation > Footnotes Combined Into a Single Paragraph
 \SetFootnotes{
 type = notes, 
 textfnmark = \textsuperscript{#1},
@@ -53,7 +54,7 @@ appfnmark = \hskip 1em\textsuperscript{#1}\hskip 0.5em
 
 
 %%%%%Témoins%%%%%
-
+%%famille α%%
 \DeclareWitness{T}{\emph{T}}{Thuaneum florilegium Parisinum 8071}[
 msName=Thuaneum florilegium, 
 settlement=Paris,
@@ -70,6 +71,7 @@ origDate=s. IX,
 locus=ff. 99\textsuperscript{v}-108\textsuperscript{v}]
 \DeclareShorthand{a}{α}{T,R}
 
+%%famille β%%
 \DeclareWitness{P}{\emph{P}}{Palatinus Vaticanus 1696}[
 msName=Palatinus Vaticanus, 
 settlement=Cité du Vatican,
@@ -78,6 +80,7 @@ institution=Bibliotheca Apostolica Vaticana,
 origDate=s. XV]
 \DeclareShorthand{b}{β}{P}
 
+%%famille γ%%
 \DeclareWitness{A}{\emph{A}}{Vossianus Leidensis Oct. 56}[
 msName=Vossianus Leidensis, 
 settlement=Leyde,
@@ -92,6 +95,7 @@ institution=BNF,
 origDate=s. IX uel X]
 \DeclareShorthand{c}{γ}{A,X}
 
+%%praeterea%%
 \DeclareWitness{n}{\emph{n}}{Florilegium Parisinum Nostradamense}[
 msName=Florilegium Nostradamensis, 
 settlement=Paris,
@@ -100,106 +104,102 @@ institution=BNF,
 origDate=s. XIII,
 locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
 
+%%%%%Corps du texte%%%%%
 
 \begin{document}
 
 \maketitle
 
-\cleartooddpage
+\cleartooddpage %reprend sur une page impaire 
 \section*{Conspectus Siglorum} 
 
 \begin{xltabular}[c]{\linewidth}{lXl}
   \multicolumn{3}{c}{Primae familiae (\getsiglum{a}) codices hi sunt:}\\[0.5em]
-  \SigLine{R}\\
-  \SigLine{T}\\[1.5em]
+    \SigLine{R}\\
+    \SigLine{T}\\[1.5em]
   \multicolumn{3}{c}{Secundae familiae (\getsiglum{b}) codices hi sunt:}\\[0.5em]
-  \SigLine{P}\\[1.5em]
+    \SigLine{P}\\[1.5em]
   \multicolumn{3}{c}{Tertiae familiae (\getsiglum{c}) codices hi sunt:}\\[0.5em]
-  \SigLine{A}\\
-  \SigLine{X}\\[1.5em]
+    \SigLine{A}\\
+    \SigLine{X}\\[1.5em]
   \multicolumn{3}{c}{Praeterea duo florilegia hic illic citantur:}\\[0.5em]
-  \SigLine{n}\\
-  \end{xltabular}
+    \SigLine{n}\\
+\end{xltabular}
 
-\cleartoevenpage
+\cleartoevenpage %reprend sur une page paire 
 
 \section*{Édition \& Traduction}
 
 \SetLineation{
-  lineation=none,
-  vlineation=page,
-  vmodulo,
-  vmargin=right
-  }  
+  lineation=none, %nouvelle linéation sur chaque page mais pas imprimée 
+  vlineation=page, %idem mais pour la poésie 
+  vmodulo, %poésie : seules toutes les n (default=5) lignes sont numérotées
+  vmargin=right %poésie : numéros de vers imprimés à droite
+}  
+
+%%%%%LIVRE I%%%%%
 
 \begin{alignment}
-\begin{edition}
+  \begin{edition}
     \ekddiv{head=Liber I, depth=1, n=I, type=book}
-\end{edition}
-\begin{translation}
+  \end{edition}
+  \begin{translation}
     \ekddiv{head=Livre 1, depth=1, n=I, type=book}
-\end{translation}
+  \end{translation}
 \end{alignment}
 
+%%%%%ÉPIGRAMME I.X%%%%%
 
 \begin{alignment}
   \begin{edition}
     \begin{ekdverse}[type={hexamètres_dactyliques}]
-        \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
+      \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
         \note[type=metrica,nosep,nonum,labelb=I_X_1a,labele=I_X_4h]{Choliambes}
         Petit \app{
-    \lem[wit={a,b},alt=gemellus]{Gemellus}
-    \rdg[wit=c]{gemellus uenustus} 
-}
-nuptias Maronillae \\
-et cupit et instat et precatur et donat. \\ 
-    Adeone pulchra est ? Immo foedius nil est. \\ 
-Quid ergo in illa \app{
-        \lem[wit={a,c}]{petitur}
-        \rdg[wit=b, alt=appe-]{appetitur}
-        }
-        et placet ? Tussit. \linelabel{I_X_4h}  \\
-
+              \lem[wit={a,b},alt=gemellus]{Gemellus}
+              \rdg[wit=c]{gemellus uenustus} 
+        } nuptias Maronillae \\
+        et cupit et instat et precatur et donat. \\ 
+        Adeone pulchra est ? Immo foedius nil est. \\ 
+        Quid ergo in illa \app{
+                          \lem[wit={a,c}]{petitur}
+                          \rdg[wit=b, alt=appe-]{appetitur}
+        } et placet ? Tussit. \linelabel{I_X_4h}  \\
     \end{ekdverse}
   \end{edition}
   \begin{translation}
     \begin{ekdverse}[type={hexamètres_dactyliques}]
         \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
-
         Gemellus veut épouser Maronilla. \\ 
         Il la veut, insiste, implore, fait des cadeaux. \\ 
         Elle est si belle ? Pas du tout ! On ne fait pas plus hideux ! \\ 
         Qu'est-ce qui l'attire, alors, et lui plaît tant ? Sa toux\footnote{Gemellus est un \emph{captator} d'héritage.}. \\ 
-
     \end{ekdverse}
   \end{translation}
 \end{alignment}
 
-%%%%%
-
 \begin{alignment}
-    \begin{edition}
-      \begin{ekdverse}[type={distiques_élégiaques}]
-        \ekddiv{head=XXIX, depth=2, n=I.XXIX, type=epigram} 
-          \indentpattern{01}
-          \begin{patverse*}
+  \begin{edition}
+    \begin{ekdverse}[type={distiques_élégiaques}]
+      \ekddiv{head=XXIX, depth=2, n=I.XXIX, type=epigram} 
+        \indentpattern{01}
+        \begin{patverse*}
           \note[type=metrica,nosep,nonum,labelb=I_XXIX_1a,labele=I_XXIX_4i]{Distiques élégiaques}
           Fama refert nostros te, Fidentine, libellos \\ 
-    non aliter populo quam recitare tuos. \\ 
-    Si mea uis dici, gratis tibi carmina mittam : \\ 
-    si dici tua uis, \app{
-    \lem[wit={b,c}]{hoc}
-    \rdg[wit=T, alt=\emph{om.}]{}
-    }
-    eme, ne mea sint. \linelabel{I_XXIX_4i}  \\
-      \end{patverse*}
-      \end{ekdverse}
-    \end{edition}
-    \begin{translation}
-        \begin{ekdverse}[type={distiques_élégiaques}]
-            \ekddiv{head=XXIX, depth=2, n=I.XXIX, type=epigram} 
-            \indentpattern{01}
-            \begin{patverse*}
+          non aliter populo quam recitare tuos. \\ 
+          Si mea uis dici, gratis tibi carmina mittam : \\ 
+          si dici tua uis, \app{
+                           \lem[wit={b,c}]{hoc}
+                           \rdg[wit=T, alt=\emph{om.}]{}
+          } eme, ne mea sint. \linelabel{I_XXIX_4i}  \\
+        \end{patverse*}
+    \end{ekdverse}
+  \end{edition}
+  \begin{translation}
+    \begin{ekdverse}[type={distiques_élégiaques}]
+      \ekddiv{head=XXIX, depth=2, n=I.XXIX, type=epigram} 
+        \indentpattern{01}
+        \begin{patverse*}
         À ce qu'on dit, Fidentinus, \\ 
         tu récites en public \\ 
         mes petits livres, \\
@@ -209,52 +209,53 @@ Quid ergo in illa \app{
         Tu veux les présenter comme les tiens ? \\ 
         Paie pour les avoir\footnote{Littéralement : paie le fait qu'ils ne soient plus à moi. Il s'agit d'acheter le silence de l'auteur.}. \\
         \end{patverse*} 
-      \end{ekdverse}
-    \end{translation}
-  \end{alignment}
+    \end{ekdverse}
+  \end{translation}
+\end{alignment}
 
-  %%%%%
+%%%%%ÉPIGRAMME I.LXXI%%%%%
 
 \begin{alignment}
-    \begin{edition}
-       \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
+  \begin{edition}
+      \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
           \note[type=metrica,nosep,nonum,labelb=I_LXXI_1a,labele=I_LXXI_4h]{Distiques élégiaques}
           Laeuia sex cyathis, septem Iustina bibatur, 
-    quinque \app{
-    \lem[wit=c, alt=lycas]{Lycas}
-    \rdg[wit=b]{lycis}
-    }%
-    , Lyde quattuor, Ida tribus. 
-    Omnis ab \app{
-    \lem[wit=c]{infuso}
-    \rdg[wit=b, alt=eff-]{effuso}
-    }
-    numeretur amica Falerno, 
-    et quia nulla uenit, tu mihi, Somne, ueni.\linelabel{I_LXXI_4h} 
-    \end{edition}
-    \begin{translation}
-          \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
-                Six coupes pour Laevia, sept pour Iustina, 
-                cinq pour Lycas, quatre pour Lydé, trois pour Ida. 
-                Que chacune de mes amies soit comptée en rasades de Falerne\footnote{Pour chaque lettre du nom, est versé un cyathe de vin.}, 
-                et puisqu'aucune n'est venue, viens sur moi, Sommeil.
-    \end{translation}
-  \end{alignment}
+          quinque \app{
+          \lem[wit=c, alt=lycas]{Lycas}
+          \rdg[wit=b]{lycis}
+          }, Lyde quattuor, Ida tribus. 
+          Omnis ab \app{
+                  \lem[wit=c]{infuso}
+                  \rdg[wit=b, alt=eff-]{effuso}
+          }
+          numeretur amica Falerno, 
+          et quia nulla uenit, tu mihi, Somne, ueni. \linelabel{I_LXXI_4h} 
+  \end{edition}
+  \begin{translation}
+      \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
+          Six coupes pour Laevia, sept pour Iustina, 
+          cinq pour Lycas, quatre pour Lydé, trois pour Ida. 
+          Que chacune de mes amies soit comptée en rasades de Falerne\footnote{Pour chaque lettre du nom, est versé un cyathe de vin.}, 
+          et puisqu'aucune n'est venue, viens sur moi, Sommeil.
+  \end{translation}
+\end{alignment}
   
-%%%%%
-\begin{alignment}
-    \begin{edition}
-        \ekddiv{head=Liber II, depth=1, n=I, type=book}
-    \end{edition}
-    \begin{translation}
-        \ekddiv{head=Livre 2, depth=1, n=I, type=book}
-    \end{translation}
-    \end{alignment}
-%%%%%
+%%%%%LIVRE II%%%%%
 
-  \begin{alignment}
-    \begin{edition}
-        \ekddiv{head=VII, depth=2, n=II.VII, type=epigram} 
+\begin{alignment}
+  \begin{edition}
+    \ekddiv{head=Liber II, depth=1, n=II, type=book}
+  \end{edition}
+  \begin{translation}
+    \ekddiv{head=Livre 2, depth=1, n=II, type=book}
+  \end{translation}
+\end{alignment}
+
+%%%%%ÉPIGRAMME II.VII%%%%%
+
+\begin{alignment}
+  \begin{edition}
+      \ekddiv{head=VII, depth=2, n=II.VII, type=epigram} 
           Declamas belle, causas agis, Attice, belle ; 
           historias bellas, carmina bella facis ; 
           componis belle mimos, epigrammata belle ; 
@@ -263,52 +264,51 @@ Quid ergo in illa \app{
           bellus es arte lyrae, bellus es arte pilae. 
           Nil bene cum facias, facias tamen omnia belle, 
           uis dicam quid sis ? Magnus es ardalio. 
-    \end{edition}
-    \begin{translation}
-            \ekddiv{head=VII, depth=2, n=I.VII, type=epigram} 
-                Tu déclames joliment, tu plaides, Atticus, joliment ; 
-                tu écris de jolies histoires, de jolis poèmes ; 
-                tu composes de jolis mimes, des épigrammes jolies ; 
-                tu es joli grammairien, joli astrologue, 
-                tu chantes joliment et tu danses, Atticus, joliment ; 
-                tu joues joliment de la lyre, joliment à la balle. 
-                Tu ne fais rien de bien, mais tu fais tout joliment. 
-                Pour un amateur, quel professionnalisme !\footnote{Littéralement: « Veux-tu que je te dise ce que tu es ? Tu es un grand amateur. » \emph{Ardalio} est un terme rare et péjoratif, désignant un dilettante vainement affairé et incapable de mener une activité à son terme.} 
-    \end{translation}
-  \end{alignment}
+  \end{edition}
+  \begin{translation}
+      \ekddiv{head=VII, depth=2, n=I.VII, type=epigram} 
+          Tu déclames joliment, tu plaides, Atticus, joliment ; 
+          tu écris de jolies histoires, de jolis poèmes ; 
+          tu composes de jolis mimes, des épigrammes jolies ; 
+          tu es joli grammairien, joli astrologue, 
+          tu chantes joliment et tu danses, Atticus, joliment ; 
+          tu joues joliment de la lyre, joliment à la balle. 
+          Tu ne fais rien de bien, mais tu fais tout joliment. 
+          Pour un amateur, quel professionnalisme !\footnote{Littéralement: « Veux-tu que je te dise ce que tu es ? Tu es un grand amateur. » \emph{Ardalio} est un terme rare et péjoratif, désignant un dilettante vainement affairé et incapable de mener une activité à son terme.} 
+  \end{translation}
+\end{alignment}
 
-%%%%%
+%%%%%ÉPIGRAMME II.LXIV%%%%%
 
 \begin{alignment}
-    \begin{edition}
-        \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
+  \begin{edition}
+      \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
           \note[type=metrica,nosep,nonum,labelb=II_LXIV_1a,labele=II_LXIV_10h]{Distiques élégiaques}
-          Dum modo causidicum, dum te modo rhetora fingis 
-          et non decernis, \app{
-            \lem[wit={a,c}]{Laure}
-            \rdg[wit=b]{taure}
-          }, quid esse uelis, 
-          Peleos et Priami transît et Nestoris aetas 
-          et fuerat serum iam tibi desinere. 
-          Incipe, tres uno perierunt rhetores anno, 
-          si quid habes animi, si quid in arte uales. 
-          Si schola damnatur, fora litibus omnia feruent, 
-          ipse \app{
-            \lem[wit={b,c}]{potest}
-            \rdg[wit=T]{potes}
-          } fieri Marsua causidicus. 
-          Heia age, rumpe moras : quo te \app{
-            \lem[wit=b]{sperabimus}
-            \rdg[wit={a,c}, alt=-uimus]{sperauimus}
-          }
-          usque ? 
-          Dum \app{
+        Dum modo causidicum, dum te modo rhetora fingis 
+        et non decernis, \app{
+                         \lem[wit={a,c}]{Laure}
+                         \rdg[wit=b]{taure}
+        }, quid esse uelis, 
+        Peleos et Priami transît et Nestoris aetas 
+        et fuerat serum iam tibi desinere. 
+        Incipe, tres uno perierunt rhetores anno, 
+        si quid habes animi, si quid in arte uales. 
+        Si schola damnatur, fora litibus omnia feruent, 
+        ipse \app{
+             \lem[wit={b,c}]{potest}
+             \rdg[wit=T]{potes}
+        } fieri Marsua causidicus. 
+        Heia age, rumpe moras : quo te \app{
+                                       \lem[wit=b]{sperabimus}
+                                       \rdg[wit={a,c}, alt=-uimus]{sperauimus}
+        } usque ? 
+        Dum \app{
             \lem[wit={a,b}]{quid}
             \rdg[wit={c}]{quis}
-          } sis dubitas, iam potes esse nihil. \linelabel{II_LXIV_10h}  
-    \end{edition}
-    \begin{translation}
-            \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
+        } sis dubitas, iam potes esse nihil. \linelabel{II_LXIV_10h}  
+  \end{edition}
+  \begin{translation}
+      \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
         Pendant que tu t'imaginais tantôt avocat, tantôt rhéteur\footnote{C'est-à-dire professeur de rhétorique.},
         sans te décider, Laurus, pour telle ou telle carrière, 
         se sont écoulées les années de Pélée, de Priam et Nestor, 
@@ -319,7 +319,7 @@ Quid ergo in illa \app{
         et Marsyas\footnote{Les avocats de Rome se donnaient volontiers rendez-vous près de la statue du satyre Marsyas, sur le forum.} en personne pourrait se faire avocat. 
         Allez, debout ! Plus d'excuses ! Jusqu'à quand faudra-t-il t'attendre ? 
         À balancer sur ce que tu veux être, tu risques de n'être plus rien. 
-    \end{translation}
-  \end{alignment}
+  \end{translation}
+\end{alignment}
 
 \end{document}
