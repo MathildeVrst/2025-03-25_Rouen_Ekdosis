@@ -377,7 +377,7 @@ Mathilde Verstraete
 <ol type="1">
 <li>LaTeX : Quelques rappels ;</li>
 <li>ekdosis : <em>Dummy edition</em> ;</li>
-<li>ekdosis : travaux pratique</li>
+<li>ekdosis : édition d’épigrammes choisies de Martial (exercice)</li>
 </ol></li>
 </ol>
 </section>
@@ -426,12 +426,24 @@ Mathilde Verstraete
 </div>
 </div>
 </section>
-<section class="slide level2">
-
+<section id="section" class="slide level2 smaller">
+<h2></h2>
 <h3 id="limportance-de-lapparat-critique">L’importance de l’apparat critique</h3>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[ 65, 30 ]">
+<div class="quarto-layout-row">
+<div id="first-column" class="quarto-layout-cell" style="flex-basis: 68.4%;justify-content: flex-start;">
 <blockquote>
 <p>I had by then read the greater part of Aristophanes, and I began to rave about it to Leo, and to wax eloquent on the magic of this poetry, the beauty of the choral odes, and so on and so forth. Leo let me have my say, perhaps ten minutes in all, without showing any sign of disapproval or impatience. When I was finished, he asked: “In which edition do you read Aristophanes?” I thought: has he not been listening? What has his question got to do with what I have been telling him? After a moment’s ruffled hesitation I answered: “The Teubner”. Leo: “Oh, you read Aristophanes without a critical apparatus.” He said it quite calmly, without any sharpness, without a whiff of sarcasm, just sincerely taken aback that it was possible for a tolerably intelligent young man to do such a thing. I looked at the lawn nearby and had a single, overwhelming sensation: νῦν μοι χάνοι εὐρεῖα χθών. Later it seemed to me that in that moment I had understood the meaning of real scholarship. (West, <em>Textual Criticism and Editorial Technique</em>, 1973, p.&nbsp;7).</p>
 </blockquote>
+</div>
+<div id="second-column" class="quarto-layout-cell" style="flex-basis: 31.6%;justify-content: center;">
+<p><img data-src="img/west.jpg"></p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -633,9 +645,9 @@ West, M. L. (1973). <i>Textual Criticism and Editorial Technique Applicable to G
 <h3 id="latex-retenir-ce-quil-nest-pas">LaTeX : retenir ce qu’il n’est pas<sup>1</sup></h3>
 <ul>
 <li>Un traitement de texte → qualité de la mise en page ;</li>
-<li>WYSIWYG → plutôt What You See Is What You Mean</li>
-<li>Incompatible → format identique sur tous les systèmes d’exploitation</li>
-<li>Instable → noyau arrivé à maturité</li>
+<li>WYSIWYG → plutôt What You See Is What You Mean ;</li>
+<li>Incompatible → format identique sur tous les systèmes d’exploitation ;</li>
+<li>Instable → noyau arrivé à maturité ;</li>
 <li>Imprévisible → LATEX fait ce qu’on lui demande, ni plus, ni moins</li>
 </ul>
 <p><span class="alert">Le contenu et la structure priment sur la sémantique et l’apparence</span> ! Que privilégier&nbsp;?</p>
@@ -686,7 +698,7 @@ West, M. L. (1973). <i>Textual Criticism and Editorial Technique Applicable to G
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <h3 id="latex-quelques-rappels">1. LaTeX : Quelques rappels</h3>
 <h3 id="ekdosis-dummy-edition">2. ekdosis : <em>Dummy edition</em></h3>
-<h3 id="ekdosis-travaux-pratique">3. ekdosis : travaux pratique</h3>
+<h3 id="ekdosis-travaux-pratiques">3. ekdosis : travaux pratiques</h3>
 </div>
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <ul>
@@ -698,8 +710,8 @@ West, M. L. (1973). <i>Textual Criticism and Editorial Technique Applicable to G
 <ul>
 <li>Pour la partie 3 :
 <ul>
-<li><a href="https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf">Téléchargez les 3 documents à cette adresses et chargez-les dans un <em>blank projet</em> Overleaf</a><sup>2</sup> (Cliquez sur chaque fichier puis sur “Download Raw File”)</li>
-<li>La <a href="https://www.ekdosis.org/images/ekdosis.pdf">documentation de ekdosis</a> vous sera aussi très utile<sup>3</sup></li>
+<li><a href="https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf">Téléchargez les 3 documents (<code>.lua</code>, <code>.sty</code>, <code>.tex</code>) à cette adresses et chargez-les dans un <em>blank projet</em> Overleaf</a><sup>2</sup> (cliquez sur chaque fichier puis sur “Download Raw File”)</li>
+<li>La <a href="https://www.ekdosis.org/images/ekdosis.pdf">documentation d’ekdosis</a> vous sera aussi très utile<sup>3</sup></li>
 </ul></li>
 </ul>
 
@@ -1107,7 +1119,7 @@ West, M. L. (1973). <i>Textual Criticism and Editorial Technique Applicable to G
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

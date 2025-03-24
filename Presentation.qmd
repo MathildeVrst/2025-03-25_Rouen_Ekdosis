@@ -24,7 +24,7 @@ format:
 4. Place à la pratique ([utilisation d'OverLeaf]{.alert}) : 
    1. LaTeX : Quelques rappels ; 
    2. ekdosis : *Dummy edition* ; 
-   3. ekdosis : travaux pratique 
+   3. ekdosis : édition d'épigrammes choisies de Martial (exercice) 
    
 ## 1. Quelques mots sur l'ecdotique et la critique textuelle 
 
@@ -64,9 +64,24 @@ format:
 
 ---
 
+## {.smaller}
+
 ### L’importance de l’apparat critique
 
+:::: {layout="[ 65, 30 ]"}
+
+::: {#first-column}
+
 > I had by then read the greater part of Aristophanes, and I began to rave about it to Leo, and to wax eloquent on the magic of this poetry, the beauty of the choral odes, and so on and so forth. Leo let me have my say, perhaps ten minutes in all, without showing any sign of disapproval or impatience. When I was finished, he asked: "In which edition do you read Aristophanes?" I thought: has he not been listening? What has his question got to do with what I have been telling him? After a moment's ruffled hesitation I answered: "The Teubner". Leo: "Oh, you read Aristophanes without a critical apparatus." He said it quite calmly, without any sharpness, without a whiff of sarcasm, just sincerely taken aback that it was possible for a tolerably intelligent young man to do such a thing. I looked at the lawn nearby and had a single, overwhelming sensation: νῦν μοι χάνοι εὐρεῖα χθών. Later it seemed to me that in that moment I had understood the meaning of real scholarship. (West, *Textual Criticism and Editorial Technique*, 1973, p. 7). 
+
+:::
+
+::: {#second-column}
+
+![](img/west.jpg)
+
+:::
+::::
 
 ---
 
@@ -242,9 +257,9 @@ Les Anthologies précédentes (perdues) :
 ### LaTeX : retenir ce qu'il n'est pas^[*Cf.* V. Goulet, Rédaction avec `\title{LATEX}`.]
 
 - Un traitement de texte → qualité de la mise en page ;
-- WYSIWYG → plutôt What You See Is What You Mean
-- Incompatible → format identique sur tous les systèmes d’exploitation
-- Instable → noyau arrivé à maturité
+- WYSIWYG → plutôt What You See Is What You Mean ; 
+- Incompatible → format identique sur tous les systèmes d’exploitation ; 
+- Instable → noyau arrivé à maturité ; 
 - Imprévisible → LATEX fait ce qu’on lui demande, ni plus, ni moins
 
 [Le contenu et la structure priment sur la sémantique et l'apparence]{.alert} ! Que privilégier ? 
@@ -294,7 +309,7 @@ Les Anthologies précédentes (perdues) :
 
 ### 1. LaTeX : Quelques rappels 
 ### 2. ekdosis : *Dummy edition* 
-### 3. ekdosis : travaux pratique 
+### 3. ekdosis : travaux pratiques 
 
 :::
 
@@ -306,5 +321,5 @@ Les Anthologies précédentes (perdues) :
 ::::
 
 - Pour la partie 3 : 
-  - [Téléchargez les 3 documents à cette adresses et chargez-les dans un *blank projet* Overleaf](https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf)^[<https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf>.] (Cliquez sur chaque fichier puis sur "Download Raw File")
-  - La [documentation de ekdosis](https://www.ekdosis.org/images/ekdosis.pdf) vous sera aussi très utile^[<https://www.ekdosis.org/images/ekdosis.pdf>.]
+  - [Téléchargez les 3 documents (`.lua`, `.sty`, `.tex`) à cette adresses et chargez-les dans un *blank projet* Overleaf](https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf)^[<https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf>.] (cliquez sur chaque fichier puis sur "Download Raw File")
+  - La [documentation d'ekdosis](https://www.ekdosis.org/images/ekdosis.pdf) vous sera aussi très utile^[<https://www.ekdosis.org/images/ekdosis.pdf>.]

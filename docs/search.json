@@ -4,7 +4,7 @@
     "href": "Presentation.html#sommaire-de-latelier",
     "title": "LaTeX et ekdosis pour l’édition critique de textes classiques",
     "section": "Sommaire de l’atelier",
-    "text": "Sommaire de l’atelier\n\nC’est quoi une édition critique ? Quelques mots sur l’ecdotique et la critique textuelle ;\nIllustration : l’édition critique numérique de la Sylloge Parisina ;\nLaTeX et ekdosis : introduction théorique ;\nPlace à la pratique (utilisation d’OverLeaf) :\n\nLaTeX : Quelques rappels ;\nekdosis : Dummy edition ;\nekdosis : travaux pratique"
+    "text": "Sommaire de l’atelier\n\nC’est quoi une édition critique ? Quelques mots sur l’ecdotique et la critique textuelle ;\nIllustration : l’édition critique numérique de la Sylloge Parisina ;\nLaTeX et ekdosis : introduction théorique ;\nPlace à la pratique (utilisation d’OverLeaf) :\n\nLaTeX : Quelques rappels ;\nekdosis : Dummy edition ;\nekdosis : édition d’épigrammes choisies de Martial (exercice)"
   },
   {
     "objectID": "Presentation.html#quelques-mots-sur-lecdotique-et-la-critique-textuelle",
@@ -12,6 +12,13 @@
     "title": "LaTeX et ekdosis pour l’édition critique de textes classiques",
     "section": "1. Quelques mots sur l’ecdotique et la critique textuelle",
     "text": "1. Quelques mots sur l’ecdotique et la critique textuelle\nEcdotique &lt; ekdosis\n\nEcdotique : L’art d’éditer les textes d’après une méthode critique\nἔκδοσις &lt; ἐκδίδωμι : produire au dehors, faire passer en d’autres mains, confier ; publier\nL’édition critique a un Rôle de médiation et de restitution de l’univers de création du texte source1\nDisposition (layout) particulière et reconnaissable.\n\nCasenave, L’édition critique numérique, Paris 2023, p. 10."
+  },
+  {
+    "objectID": "Presentation.html#section",
+    "href": "Presentation.html#section",
+    "title": "LaTeX et ekdosis pour l’édition critique de textes classiques",
+    "section": "",
+    "text": "L’importance de l’apparat critique\n\n\n\n\n\n\n\nI had by then read the greater part of Aristophanes, and I began to rave about it to Leo, and to wax eloquent on the magic of this poetry, the beauty of the choral odes, and so on and so forth. Leo let me have my say, perhaps ten minutes in all, without showing any sign of disapproval or impatience. When I was finished, he asked: “In which edition do you read Aristophanes?” I thought: has he not been listening? What has his question got to do with what I have been telling him? After a moment’s ruffled hesitation I answered: “The Teubner”. Leo: “Oh, you read Aristophanes without a critical apparatus.” He said it quite calmly, without any sharpness, without a whiff of sarcasm, just sincerely taken aback that it was possible for a tolerably intelligent young man to do such a thing. I looked at the lawn nearby and had a single, overwhelming sensation: νῦν μοι χάνοι εὐρεῖα χθών. Later it seemed to me that in that moment I had understood the meaning of real scholarship. (West, Textual Criticism and Editorial Technique, 1973, p. 7)."
   },
   {
     "objectID": "Presentation.html#quelques-références-sur-lédition-critique",
@@ -46,6 +53,6 @@
     "href": "Presentation.html#partie-pratique",
     "title": "LaTeX et ekdosis pour l’édition critique de textes classiques",
     "section": "4. Partie pratique",
-    "text": "4. Partie pratique\n\n\n\n\n\n\n1. LaTeX : Quelques rappels\n2. ekdosis : Dummy edition\n3. ekdosis : travaux pratique\n\n\n\nPour les parties 1 et 2 : Téléchargez le tuto ici1\n\n\n\n\n\nPour la partie 3 :\n\nTéléchargez les 3 documents à cette adresses et chargez-les dans un blank projet Overleaf2 (Cliquez sur chaque fichier puis sur “Download Raw File”)\nLa documentation de ekdosis vous sera aussi très utile3\n\n\n\n\n\nRouen – 25 mars 2025\n\n\nhttps://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/tuto/Tuto.pdf.https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf.https://www.ekdosis.org/images/ekdosis.pdf."
+    "text": "4. Partie pratique\n\n\n\n\n\n\n1. LaTeX : Quelques rappels\n2. ekdosis : Dummy edition\n3. ekdosis : travaux pratiques\n\n\n\nPour les parties 1 et 2 : Téléchargez le tuto ici1\n\n\n\n\n\nPour la partie 3 :\n\nTéléchargez les 3 documents (.lua, .sty, .tex) à cette adresses et chargez-les dans un blank projet Overleaf2 (cliquez sur chaque fichier puis sur “Download Raw File”)\nLa documentation d’ekdosis vous sera aussi très utile3\n\n\n\n\n\nRouen – 25 mars 2025\n\n\nhttps://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/tuto/Tuto.pdf.https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf.https://www.ekdosis.org/images/ekdosis.pdf."
   }
 ]
