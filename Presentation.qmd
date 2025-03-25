@@ -26,6 +26,8 @@ format:
    2. ekdosis : *Dummy edition* ; 
    3. ekdosis : édition d'épigrammes choisies de Martial (exercice) 
    
+> Les slides : <https://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/>
+
 ## 1. Quelques mots sur l'ecdotique et la critique textuelle 
 
 ### Ecdotique < `ekdosis`
