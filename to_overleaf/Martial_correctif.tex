@@ -14,11 +14,11 @@
 \titleformat{\section}{\center\Large\bfseries}{}{1em}{} %\titleformat{<niveau de titre>}{<style du titre>}{<préfixe>}{<espacement>}{<suffixe>}
 \titlespacing\section{0pt}{12pt}{0pt} %\titlespacing{<niveau de titre>}{<espace avant>}{<espace vertical>}{<espace après>}
 
-\title{Martial. \textit{Épigrammes choisies (Livres I-II)}\footnote{Les textes et traductions ci-dessous sont issues de \textsc{Izaac} H.-J. et \textsc{Malick-Prunier} S., \emph{Martial. Épigrammes} (t. I), Paris, Les Belles Lettres, 2021. Le présent document est un exercice {\eKd} donné dans le cadre de l'atelier \emph{Éditer avec Ekdosis} (Rouen, le 25 mars 2025) assuré par Mathilde Verstraete (qui ne garantit l'élégance du code utilisé).}}
+\title{Martial. \textit{Épigrammes choisies (Livres I-II)}\footnote{Les textes et traductions ci-dessous sont issues de \textsc{Izaac} H.-J. et \textsc{Malick-Prunier} S., \emph{Martial. Épigrammes} (t. I), Paris, Les Belles Lettres, 2021. Le présent document représente le corrigé (à utiliser en regard de son correspondant .{\TeX}) d'un exercice {\eKd} donné dans le cadre de l'atelier \emph{Éditer avec Ekdosis} (Rouen, le 25 mars 2025) assuré par Mathilde Verstraete (qui ne garantit l'élégance du code utilisé).}}
 \author{Édité par ...}
 \date{}
 
-\usepackage[poetry=verse]{ekdosis} %chargement d'ekdosis avec l'option verse (pour la poésie)
+\usepackage[teiexport, poetry=verse]{ekdosis} %chargement d'ekdosis avec l'option verse (pour la poésie)
 
 \FormatDiv{1}{\begin{center}\vspace*{2em}\large\bfseries}{\end{center}} %Mise en forme des divisions ekdosis 
 \FormatDiv{2}{\begin{center}\bfseries}{\end{center}}
@@ -35,8 +35,9 @@
 
 %déclaration des différents apparats critiques (ici, default = criticus + métrique + notes = footnotes)
 \DeclareApparatus{default}[
-  sep={ : }, %symbole séparant les "lem" des "rdg" 
-  subsep={ : }, %symbole (sous-)séprant les "rdg" successives 
+sep={ : }, %symbole séparant les "lem" des "rdg" 
+subsep={ : }, %symbole (sous-)séprant les "rdg" successives 
+delim={‖ }, %symbole séparant les différents lieux variants 
 ]
 
 \DeclareApparatus{metrica}[
@@ -47,6 +48,7 @@
 
 \DeclareApparatus{notes} %cfr. documentation > Footnotes Combined Into a Single Paragraph
 \SetFootnotes{
+paragraph,
 type = notes, 
 textfnmark = \textsuperscript{#1},
 appfnmark = \hskip 1em\textsuperscript{#1}\hskip 0.5em
@@ -78,7 +80,13 @@ settlement=Cité du Vatican,
 idno=1696,
 institution=Bibliotheca Apostolica Vaticana,
 origDate=s. XV]
-\DeclareShorthand{b}{β}{P}
+\DeclareWitness{Q}{\emph{Q}}{Arondellianus Musei Britannici 136}[
+msName=Arondellianus, 
+settlement=Londres,
+idno=136,
+institution=British Library,
+origDate=s. XV]
+\DeclareShorthand{b}{β}{P,Q}
 
 %%famille γ%%
 \DeclareWitness{A}{\emph{A}}{Vossianus Leidensis Oct. 56}[
@@ -96,6 +104,13 @@ origDate=s. IX uel X]
 \DeclareShorthand{c}{γ}{A,X}
 
 %%praeterea%%
+\DeclareWitness{Fris}{\emph{Fris.}}{Excerpta Frisingensia Bibl. Monacensis}[
+msName=Monacensis (Frisingensis), 
+settlement=Munich,
+idno=6292,
+institution=Bayerische Staatsbibliothek,
+origDate=s. XI,
+locus=ff. 118\textsuperscript{r}-119\textsuperscript{v}]
 \DeclareWitness{n}{\emph{n}}{Florilegium Parisinum Nostradamense}[
 msName=Florilegium Nostradamensis, 
 settlement=Paris,
@@ -119,11 +134,13 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
     \SigLine{R}\\
     \SigLine{T}\\[1.5em]
   \multicolumn{3}{c}{Secundae familiae (\getsiglum{b}) codices hi sunt:}\\[0.5em]
-    \SigLine{P}\\[1.5em]
+    \SigLine{P}\\
+    \SigLine{Q}\\[1.5em]
   \multicolumn{3}{c}{Tertiae familiae (\getsiglum{c}) codices hi sunt:}\\[0.5em]
     \SigLine{A}\\
     \SigLine{X}\\[1.5em]
   \multicolumn{3}{c}{Praeterea duo florilegia hic illic citantur:}\\[0.5em]
+    \SigLine{Fris}\\
     \SigLine{n}\\
 \end{xltabular}
 
@@ -153,8 +170,8 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
 
 \begin{alignment}
   \begin{edition}
-    \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
-    \begin{ekdverse}[type={hexamètres_dactyliques}]
+      \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
+      \begin{ekdverse}[type={hexamètres_dactyliques}]
         \note[type=metrica,nosep,nonum,labelb=I_X_1a,labele=I_X_4h]{Choliambes}
         Petit \app{
               \lem[wit={a,b},alt=gemellus]{Gemellus}
@@ -169,8 +186,8 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
     \end{ekdverse}
   \end{edition}
   \begin{translation}
-    \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
-    \begin{ekdverse}[type={hexamètres_dactyliques}]
+        \ekddiv{head=X, depth=2, n=I.X, type=epigram} 
+        \begin{ekdverse}[type={hexamètres_dactyliques}]
         Gemellus veut épouser Maronilla. \\ 
         Il la veut, insiste, implore, fait des cadeaux. \\ 
         Elle est si belle ? Pas du tout ! On ne fait pas plus hideux ! \\ 
@@ -178,6 +195,8 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
     \end{ekdverse}
   \end{translation}
 \end{alignment}
+
+%%%%%ÉPIGRAMME I.XXIX%%%%%
 
 \begin{alignment}
   \begin{edition}
@@ -214,33 +233,43 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
   \end{translation}
 \end{alignment}
 
+
 %%%%%ÉPIGRAMME I.LXXI%%%%%
 
 \begin{alignment}
   \begin{edition}
-      \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
+    \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
+    \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
           \note[type=metrica,nosep,nonum,labelb=I_LXXI_1a,labele=I_LXXI_4h]{Distiques élégiaques}
-          Laeuia sex cyathis, septem Iustina bibatur, 
+          Laeuia sex cyathis, septem Iustina bibatur, \\ 
           quinque \app{
-          \lem[wit=c, alt=lycas]{Lycas}
-          \rdg[wit=b]{lycis}
-          }, Lyde quattuor, Ida tribus. 
+                  \lem[wit=c, alt=lycas]{Lycas}
+                  \rdg[wit=b]{lycis}
+                  }, Lyde quattuor, Ida tribus. \\ 
           Omnis ab \app{
-                  \lem[wit=c]{infuso}
-                  \rdg[wit=b, alt=eff-]{effuso}
-          }
-          numeretur amica Falerno, 
-          et quia nulla uenit, tu mihi, Somne, ueni. \linelabel{I_LXXI_4h} 
+                   \lem[wit=c]{infuso}
+                   \rdg[wit=b, alt=eff-]{effuso}
+                   } numeretur amica Falerno, \\ 
+          et quia nulla uenit, tu mihi, Somne, ueni. \linelabel{I_LXXI_4h} \\
+        \end{patverse*}
+    \end{ekdverse}
   \end{edition}
   \begin{translation}
-      \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
-          Six coupes pour Laevia, sept pour Iustina, 
-          cinq pour Lycas, quatre pour Lydé, trois pour Ida. 
-          Que chacune de mes amies soit comptée en rasades de Falerne\footnote{Pour chaque lettre du nom, est versé un cyathe de vin.}, 
-          et puisqu'aucune n'est venue, viens sur moi, Sommeil.
+    \ekddiv{head=LXXI, depth=2, n=I.LXXI, type=epigram} 
+    \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
+          Six coupes pour Laevia, sept pour Iustina, \\ 
+          cinq pour Lycas, quatre pour Lydé, trois pour Ida. \\ 
+          Que chacune de mes amies soit comptée en rasades de Falerne\footnote{Pour chaque lettre du nom, est versé un cyathe de vin.}, \\
+          et puisqu'aucune n'est venue, viens sur moi, Sommeil. \\
+        \end{patverse*} 
+    \end{ekdverse}
   \end{translation}
 \end{alignment}
-  
+
 %%%%%LIVRE II%%%%%
 
 \begin{alignment}
@@ -257,25 +286,51 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
 \begin{alignment}
   \begin{edition}
       \ekddiv{head=VII, depth=2, n=II.VII, type=epigram} 
-          Declamas belle, causas agis, Attice, belle ; 
-          historias bellas, carmina bella facis ; 
-          componis belle mimos, epigrammata belle ; 
-          bellus grammaticus, bellus es astrologus,  
-          et belle cantas et saltas, Attice, belle ; 
-          bellus es arte lyrae, bellus es arte pilae. 
-          Nil bene cum facias, facias tamen omnia belle, 
-          uis dicam quid sis ? Magnus es ardalio. 
+      \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
+          \note[type=metrica,nosep,nonum,labelb=II_VII_1a,labele=II_VII_8g]{Distiques élégiaques}
+          Declamas belle, causas agis, \app{
+                                       \lem[wit=a]{Attice}
+                                       \rdg[wit={b,c}]{Attale}
+          }, belle ; \\ 
+          historias bellas, carmina bella facis ; \\ 
+          componis belle mimos, epigrammata belle ; \\ 
+          bellus grammaticus, bellus es astrologus, \\ 
+          et belle cantas et saltas, \app{
+                                     \lem[wit={a,b}]{Attice}
+                                     \rdg[wit={c}]{Attale}
+          }, belle ; \\ 
+          bellus es arte lyrae, \app{
+                                \lem[wit=c, alt=bellus es a. p.]{bellus es}
+                                \rdg[wit=b, alt=bellus et a. p.]{bellus et}
+          } arte pilae. \\ 
+          Nil bene cum facias, \app{
+                               \lem[wit=Fris]{facias tamen}
+                               \rdg[wit={b,c}]{facis tamen}
+          } omnia belle, \\ 
+          uis dicam \app{
+                    \lem[wit={b,c}]{quid}
+                    \rdg[wit=a]{qui}
+          } sis ? Magnus es ardalio. \linelabel{II_VII_8g} \\
+        \end{patverse*}
+    \end{ekdverse}
   \end{edition}
   \begin{translation}
-      \ekddiv{head=VII, depth=2, n=I.VII, type=epigram} 
-          Tu déclames joliment, tu plaides, Atticus, joliment ; 
-          tu écris de jolies histoires, de jolis poèmes ; 
-          tu composes de jolis mimes, des épigrammes jolies ; 
-          tu es joli grammairien, joli astrologue, 
-          tu chantes joliment et tu danses, Atticus, joliment ; 
-          tu joues joliment de la lyre, joliment à la balle. 
-          Tu ne fais rien de bien, mais tu fais tout joliment. 
-          Pour un amateur, quel professionnalisme !\footnote{Littéralement: « Veux-tu que je te dise ce que tu es ? Tu es un grand amateur. » \emph{Ardalio} est un terme rare et péjoratif, désignant un dilettante vainement affairé et incapable de mener une activité à son terme.} 
+    \ekddiv{head=VII, depth=2, n=I.VII, type=epigram} 
+    \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
+          Tu déclames joliment, tu plaides, Atticus, joliment ; \\ 
+          tu écris de jolies histoires, de jolis poèmes ; \\ 
+          tu composes de jolis mimes, des épigrammes jolies ; \\ 
+          tu es joli grammairien, joli astrologue, \\ 
+          tu chantes joliment et tu danses, Atticus, joliment ; \\ 
+          tu joues joliment de la lyre, joliment à la balle. \\ 
+          Tu ne fais rien de bien, mais tu fais tout joliment. \\ 
+          Pour un amateur, quel professionnalisme !\footnote{Littéralement: « Veux-tu que je te dise ce que tu es ? Tu es un grand amateur. » \emph{Ardalio} est un terme rare et péjoratif, désignant un dilettante vainement affairé et incapable de mener une activité à son terme.} \\
+        \end{patverse*} 
+    \end{ekdverse}
   \end{translation}
 \end{alignment}
 
@@ -283,43 +338,54 @@ locus=ff. 63\textsuperscript{v}-70\textsuperscript{v}]
 
 \begin{alignment}
   \begin{edition}
-      \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
+    \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
+    \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
           \note[type=metrica,nosep,nonum,labelb=II_LXIV_1a,labele=II_LXIV_10h]{Distiques élégiaques}
-        Dum modo causidicum, dum te modo rhetora fingis 
-        et non decernis, \app{
-                         \lem[wit={a,c}]{Laure}
-                         \rdg[wit=b]{taure}
-        }, quid esse uelis, 
-        Peleos et Priami transît et Nestoris aetas 
-        et fuerat serum iam tibi desinere. 
-        Incipe, tres uno perierunt rhetores anno, 
-        si quid habes animi, si quid in arte uales. 
-        Si schola damnatur, fora litibus omnia feruent, 
-        ipse \app{
-             \lem[wit={b,c}]{potest}
-             \rdg[wit=T]{potes}
-        } fieri Marsua causidicus. 
-        Heia age, rumpe moras : quo te \app{
-                                       \lem[wit=b]{sperabimus}
-                                       \rdg[wit={a,c}, alt=-uimus]{sperauimus}
-        } usque ? 
-        Dum \app{
-            \lem[wit={a,b}]{quid}
-            \rdg[wit={c}]{quis}
-        } sis dubitas, iam potes esse nihil. \linelabel{II_LXIV_10h}  
+          Dum modo causidicum, dum te modo rhetora fingis \\ 
+          et non decernis, \app{
+                           \lem[wit={a,c}]{Laure}
+                           \rdg[wit=b]{taure}
+          }, quid esse uelis, \\ 
+          Peleos et Priami transît et Nestoris aetas \\ 
+          et fuerat serum iam tibi desinere. \\ 
+          Incipe, tres uno perierunt rhetores anno, \\
+          si quid habes animi, si quid in arte uales. \\ 
+          Si schola damnatur, fora litibus omnia feruent, \\ 
+          ipse \app{
+               \lem[wit={b,c}]{potest}
+               \rdg[wit=T]{potes}
+          } fieri Marsua causidicus. \\ 
+          Heia age, rumpe moras : quo te \app{
+                                         \lem[wit=b]{sperabimus}
+                                         \rdg[wit={a,c}, alt=-uimus]{sperauimus}
+          }
+          usque ? \\ 
+          Dum \app{
+              \lem[wit={a,b}]{quid}
+              \rdg[wit={c}]{quis}
+          } sis dubitas, iam potes esse nihil. \linelabel{II_LXIV_10h}  \\
+        \end{patverse*}
+    \end{ekdverse}
   \end{edition}
   \begin{translation}
-      \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
-        Pendant que tu t'imaginais tantôt avocat, tantôt rhéteur\footnote{C'est-à-dire professeur de rhétorique.},
-        sans te décider, Laurus, pour telle ou telle carrière, 
-        se sont écoulées les années de Pélée, de Priam et Nestor, 
-        et l'âge de la retraite serait déjà passé. 
-        Lance toi ! – trois rhéteurs ont déjà trépassé en un an – 
-        si tu as du c\oe ur, si tu as du talent. 
-        Tu tires un trait sur l'école ? Les procès embrasent tous les forums, 
-        et Marsyas\footnote{Les avocats de Rome se donnaient volontiers rendez-vous près de la statue du satyre Marsyas, sur le forum.} en personne pourrait se faire avocat. 
-        Allez, debout ! Plus d'excuses ! Jusqu'à quand faudra-t-il t'attendre ? 
-        À balancer sur ce que tu veux être, tu risques de n'être plus rien. 
+    \ekddiv{head=LXIV, depth=2, n=II.LXIV, type=epigram} 
+    \begin{ekdverse}[type={distiques_élégiaques}]
+        \indentpattern{01}
+        \begin{patverse*}
+        Pendant que tu t'imaginais tantôt avocat, tantôt rhéteur\footnote{C'est-à-dire professeur de rhétorique.}, \\
+        sans te décider, Laurus, pour telle ou telle carrière, \\ 
+        se sont écoulées les années de Pélée, de Priam et Nestor, \\ 
+        et l'âge de la retraite serait déjà passé. \\ 
+        Lance toi ! – trois rhéteurs ont déjà trépassé en un an – \\ 
+        si tu as du c\oe ur, si tu as du talent. \\ 
+        Tu tires un trait sur l'école ? Les procès embrasent tous les forums, \\ 
+        et Marsyas\footnote{Les avocats de Rome se donnaient volontiers rendez-vous près de la statue du satyre Marsyas, sur le forum.} en personne pourrait se faire avocat. \\ 
+        Allez, debout ! Plus d'excuses ! Jusqu'à quand faudra-t-il t'attendre ? \\ 
+        À balancer sur ce que tu veux être, tu risques de n'être plus rien. \\
+        \end{patverse*} 
+    \end{ekdverse}
   \end{translation}
 \end{alignment}
 

@@ -299,29 +299,23 @@ Les Anthologies précédentes (perdues) :
 
 > « TeX permet d’obtenir instantanément des documents, articles ou livres, d’une qualité typographique immédiatement comparable à des ouvrages tels que ceux que la grande tradition de l’imprimerie a su produire au XIX^e^ siècle et encore dans une grande partie du XX^e^ siècle. (...) Il permet de renouer avec une tradition, aujourd’hui presque oubliée, dans laquelle l’éclat de la présentation n’était pas dissocié de la science et de la qualité des travaux universitaires. » (Alessi, Lyon 2023)
 
-
-
 ## Questions avant la partie pratique ? 
 
 ## 4. Partie pratique 
 
-:::: {layout="[ 50, 50 ]"}
+:::: {layout="[ 20, 80 ]"}
 
 ::: {#first-column}
-
-### 1. LaTeX : Quelques rappels 
-### 2. ekdosis : *Dummy edition* 
-### 3. ekdosis : travaux pratiques 
-
+1. LaTeX : Quelques rappels 
+2. ekdosis : *Dummy edition* 
+3. ekdosis : travaux pratiques 
 :::
-
-::: {#first-column}
-
-- Pour les parties 1 et 2 : [Téléchargez le tuto ici](tuto/Tuto.pdf)^[<https://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/tuto/Tuto.pdf>.] 
-
+::: {#second-column}
+- Pour les parties 1 et 2 : 
+  - [Téléchargez le tuto ici](tuto/Tuto.pdf)^[<https://mathildevrst.github.io/2025-03-25_Rouen_Ekdosis/tuto/Tuto.pdf>.] 
+- Pour la partie 3 : 
+  - [Rendez-vous à cette adresse](https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf)^[<https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf>.] ; 
+  - Téléchargez les documents (`ekdosis.lua`, `ekdosis.sty`, `Martial_exercice.tex`) et chargez-les dans un *blank projet* Overleaf (cliquez sur chaque fichier puis sur "Download Raw File") ; 
+  - La [documentation d'ekdosis](https://www.ekdosis.org/images/ekdosis.pdf) vous sera aussi très utile^[<https://www.ekdosis.org/images/ekdosis.pdf>.]
 :::
 ::::
-
-- Pour la partie 3 : 
-  - [Téléchargez les 3 documents (`.lua`, `.sty`, `.tex`) à cette adresses et chargez-les dans un *blank projet* Overleaf](https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf)^[<https://github.com/MathildeVrst/2025-03-25_Rouen_Ekdosis/tree/main/to_overleaf>.] (cliquez sur chaque fichier puis sur "Download Raw File")
-  - La [documentation d'ekdosis](https://www.ekdosis.org/images/ekdosis.pdf) vous sera aussi très utile^[<https://www.ekdosis.org/images/ekdosis.pdf>.]
